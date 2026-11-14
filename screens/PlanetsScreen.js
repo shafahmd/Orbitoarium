@@ -1,7 +1,7 @@
 // screens/PlanetsScreen.js
 // Screen 2: list of planets with search + category filter (FlatList).
 import React, { useState, useCallback } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet ,TouchableOpacity} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -56,10 +56,26 @@ export default function PlanetsScreen({ navigation }) {
           />
         )}
         ListEmptyComponent={
-          <Text style={styles.empty}>
-            {category === 'Favourites' ? 'No favourite planets yet.' : 'No planets found.'}
-          </Text>
-        }
+  <View style={styles.emptyContainer}>
+    <Text style={styles.empty}>
+      {category === 'Favourites'
+        ? 'No favourite planets yet.'
+        : 'No planets found.'}
+    </Text>
+
+    <TouchableOpacity
+      style={styles.resetButton}
+      onPress={() => {
+        setSearch('');
+        setCategory('All');
+      }}
+      accessibilityRole="button"
+      accessibilityLabel="Reset planet search and filters"
+    >
+      <Text style={styles.resetButtonText}>Reset Filters</Text>
+    </TouchableOpacity>
+  </View>
+}
       />
     </SafeAreaView>
   );
@@ -69,4 +85,22 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
   list: { paddingHorizontal: spacing.md, paddingBottom: spacing.lg },
   empty: { color: colors.textSecondary, fontSize: fontSizes.subtitle, textAlign: 'center', marginTop: spacing.xl },
+emptyContainer: {
+  alignItems: 'center',
+  marginTop: spacing.xl,
+},
+
+resetButton: {
+  backgroundColor: colors.primary,
+  paddingHorizontal: spacing.lg,
+  paddingVertical: spacing.sm,
+  borderRadius: 12,
+  marginTop: spacing.md,
+},
+
+resetButtonText: {
+  color: colors.textPrimary,
+  fontWeight: 'bold',
+  fontSize: fontSizes.body,
+},
 });
