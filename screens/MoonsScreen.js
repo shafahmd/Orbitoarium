@@ -37,8 +37,23 @@ export default function MoonsScreen() {
         contentContainerStyle={styles.list}
         keyboardShouldPersistTaps="handled"
         renderItem={({ item }) => <MoonCard moon={item} onPress={() => setSelectedMoon(item)} />}
-        ListEmptyComponent={<Text style={styles.empty}>No moons found.</Text>}
-      />
+ListEmptyComponent={
+  <View style={styles.emptyContainer}>
+    <Text style={styles.empty}>No moons found.</Text>
+
+    <TouchableOpacity
+      style={styles.resetButton}
+      onPress={() => {
+        setSearch('');
+        setSelectedPlanet('All');
+      }}
+      accessibilityRole="button"
+      accessibilityLabel="Reset moon search and filters"
+    >
+      <Text style={styles.resetButtonText}>Reset Filters</Text>
+    </TouchableOpacity>
+  </View>
+}      />
 
       {/* Moon detail view */}
       <Modal
@@ -106,4 +121,22 @@ const styles = StyleSheet.create({
   dataValue: { color: colors.textPrimary, fontSize: fontSizes.body, fontWeight: '600', flexShrink: 1, textAlign: 'right', marginLeft: spacing.md },
   factBox: { flexDirection: 'row', backgroundColor: colors.surfaceLight, borderRadius: radius.md, padding: spacing.md, marginTop: spacing.md, marginBottom: spacing.md },
   factText: { flex: 1, color: colors.textPrimary, fontSize: fontSizes.body, lineHeight: 21, marginLeft: spacing.sm },
+  emptyContainer: {
+  alignItems: 'center',
+  marginTop: spacing.xl,
+},
+
+resetButton: {
+  backgroundColor: colors.primary,
+  paddingVertical: spacing.sm,
+  paddingHorizontal: spacing.lg,
+  borderRadius: radius.md,
+  marginTop: spacing.md,
+},
+
+resetButtonText: {
+  color: colors.textPrimary,
+  fontWeight: 'bold',
+  fontSize: fontSizes.body,
+},
 });
