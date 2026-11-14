@@ -91,7 +91,12 @@ export default function HomeScreen({ navigation }) {
           horizontal
           showsHorizontalScrollIndicator={false}
           renderItem={({ item }) => (
-            <TouchableOpacity style={styles.overviewItem} onPress={() => openPlanet(item)}>
+            <TouchableOpacity
+              style={styles.overviewItem}
+              onPress={() => openPlanet(item)}
+              accessibilityRole="button"
+              accessibilityLabel={`View ${item.name} details`}
+>
               <Image source={item.image} style={styles.overviewImage} resizeMode="contain" />
               <Text style={styles.overviewName}>{item.name}</Text>
             </TouchableOpacity>
@@ -106,8 +111,10 @@ export default function HomeScreen({ navigation }) {
               key={link.label}
               style={styles.quickButton}
               onPress={() => navigation.navigate(link.screen)}
-              activeOpacity={0.8}
-            >
+               activeOpacity={0.8}
+               accessibilityRole="button"
+               accessibilityLabel={`Open ${link.label}`}
+>
               <Ionicons name={link.icon} size={26} color={colors.accent} />
               <Text style={styles.quickText}>{link.label}</Text>
             </TouchableOpacity>
