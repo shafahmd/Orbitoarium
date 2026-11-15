@@ -1,0 +1,180 @@
+// data/planets.js
+// Local dataset: all eight planets of the Solar System.
+// Images are bundled inside the app (assets/images) so everything works offline.
+// Note: the assignment asks for two categories (Terrestrial / Gas Giant),
+// so Uranus and Neptune use category "Gas Giant" and the extra "type" field
+// shows their more precise classification ("Ice Giant").
+
+const planets = [
+  {
+    id: '1',
+    name: 'Mercury',
+    category: 'Terrestrial',
+    type: 'Rocky Planet',
+    image: require('../assets/images/mercury.png'),
+    shortDescription: 'The smallest planet and the closest to the Sun.',
+    description:
+      'Mercury is the smallest planet in our solar system and the closest to the Sun. It has almost no atmosphere, so its surface is covered in craters and swings between extreme heat and freezing cold.',
+    diameter: '4,879 km',
+    distanceFromSun: '57.9 million km',
+    orbitalPeriod: '88 Earth days',
+    rotationPeriod: '59 Earth days',
+    moons: '0',
+    temperature: '-180°C to 430°C',
+    facts: [
+      'A year on Mercury (88 days) is shorter than one of its own days from sunrise to sunrise.',
+      'Despite being closest to the Sun, it is not the hottest planet.',
+      'Its surface looks similar to our Moon because of countless impact craters.',
+    ],
+  },
+  {
+    id: '2',
+    name: 'Venus',
+    category: 'Terrestrial',
+    type: 'Rocky Planet',
+    image: require('../assets/images/venus.png'),
+    shortDescription: 'The hottest planet, wrapped in thick toxic clouds.',
+    description:
+      'Venus is similar to Earth in size, but its thick carbon dioxide atmosphere traps heat in a runaway greenhouse effect. It is the hottest planet in the solar system, with crushing surface pressure.',
+    diameter: '12,104 km',
+    distanceFromSun: '108.2 million km',
+    orbitalPeriod: '225 Earth days',
+    rotationPeriod: '243 Earth days (retrograde)',
+    moons: '0',
+    temperature: 'About 465°C',
+    facts: [
+      'A day on Venus is longer than its year.',
+      'Venus spins backwards compared with most planets, so the Sun rises in the west.',
+      'Surface pressure is about 90 times that of Earth.',
+    ],
+  },
+  {
+    id: '3',
+    name: 'Earth',
+    category: 'Terrestrial',
+    type: 'Rocky Planet',
+    image: require('../assets/images/earth.png'),
+    shortDescription: 'Our home, the only known planet with life.',
+    description:
+      'Earth is the third planet from the Sun and the only place known to support life. About 71% of its surface is covered by liquid water, and its atmosphere and magnetic field protect living things.',
+    diameter: '12,742 km',
+    distanceFromSun: '149.6 million km',
+    orbitalPeriod: '365.25 days',
+    rotationPeriod: '23 hours 56 minutes',
+    moons: '1',
+    temperature: 'Average about 15°C',
+    facts: [
+      'Earth is the densest planet in the solar system.',
+      'It is the only planet with liquid water on its surface.',
+      'Earth is tilted about 23.5 degrees, which creates the seasons.',
+    ],
+  },
+  {
+    id: '4',
+    name: 'Mars',
+    category: 'Terrestrial',
+    type: 'Rocky Planet',
+    image: require('../assets/images/mars.png'),
+    shortDescription: 'The Red Planet, home to the tallest volcano known.',
+    description:
+      'Mars is a cold, dusty desert world. Iron oxide (rust) in its soil gives it a red color. It has the tallest volcano and one of the largest canyons in the solar system, and many robotic explorers have studied it.',
+    diameter: '6,779 km',
+    distanceFromSun: '227.9 million km',
+    orbitalPeriod: '687 Earth days',
+    rotationPeriod: '24 hours 37 minutes',
+    moons: '2',
+    temperature: 'Average about -65°C',
+    facts: [
+      'Olympus Mons is about 22 km tall, roughly 2.5 times the height of Mount Everest.',
+      'Mars has two small moons, Phobos and Deimos.',
+      'Evidence shows that liquid water once flowed on its surface.',
+    ],
+  },
+  {
+    id: '5',
+    name: 'Jupiter',
+    category: 'Gas Giant',
+    type: 'Gas Giant',
+    image: require('../assets/images/jupiter.png'),
+    shortDescription: 'The largest planet, with a giant storm.',
+    description:
+      'Jupiter is the largest planet in the solar system, more than twice as massive as all the other planets combined. It is made mostly of hydrogen and helium and is famous for its colorful cloud bands and the Great Red Spot.',
+    diameter: '139,820 km',
+    distanceFromSun: '778.5 million km',
+    orbitalPeriod: '11.9 Earth years',
+    rotationPeriod: '9 hours 56 minutes',
+    moons: '95+ confirmed',
+    temperature: 'About -110°C (cloud tops)',
+    facts: [
+      'The Great Red Spot is a storm that has lasted for at least 150 years.',
+      'Jupiter has the shortest day of all the planets.',
+      'Its strong gravity helps shape the orbits of many other objects.',
+    ],
+  },
+  {
+    id: '6',
+    name: 'Saturn',
+    category: 'Gas Giant',
+    type: 'Gas Giant',
+    image: require('../assets/images/saturn.png'),
+    shortDescription: 'The ringed planet, light enough to float on water.',
+    description:
+      'Saturn is the second-largest planet and is best known for its spectacular ring system, made of billions of pieces of ice and rock. It is a gas giant made mostly of hydrogen and helium.',
+    diameter: '116,460 km',
+    distanceFromSun: '1.43 billion km',
+    orbitalPeriod: '29.4 Earth years',
+    rotationPeriod: '10 hours 33 minutes',
+    moons: '270+ confirmed',
+    temperature: 'About -140°C (cloud tops)',
+    facts: [
+      'Saturn is the least dense planet; it would float in a giant bathtub of water.',
+      'Its rings are huge but very thin, often only about 10 metres thick in places.',
+      'Titan, its largest moon, has a thick atmosphere.',
+    ],
+  },
+  {
+    id: '7',
+    name: 'Uranus',
+    category: 'Gas Giant',
+    type: 'Ice Giant',
+    image: require('../assets/images/uranus.png'),
+    shortDescription: 'A pale blue ice giant that spins on its side.',
+    description:
+      'Uranus is an ice giant with a pale blue-green color caused by methane in its atmosphere. Its axis is tilted by about 98 degrees, so it seems to roll around the Sun on its side.',
+    diameter: '50,724 km',
+    distanceFromSun: '2.87 billion km',
+    orbitalPeriod: '84 Earth years',
+    rotationPeriod: '17 hours 14 minutes (retrograde)',
+    moons: '29',
+    temperature: 'About -195°C',
+    facts: [
+      'Uranus was the first planet discovered with a telescope, by William Herschel in 1781.',
+      'Each pole gets about 42 years of sunlight followed by 42 years of darkness.',
+      'It has faint, dark rings.',
+    ],
+  },
+  {
+    id: '8',
+    name: 'Neptune',
+    category: 'Gas Giant',
+    type: 'Ice Giant',
+    image: require('../assets/images/neptune.png'),
+    shortDescription: 'The windiest planet, a deep blue world far away.',
+    description:
+      'Neptune is the farthest planet from the Sun. This cold, dark ice giant has the fastest winds in the solar system, and its deep blue color comes from methane in its atmosphere.',
+    diameter: '49,244 km',
+    distanceFromSun: '4.50 billion km',
+    orbitalPeriod: '165 Earth years',
+    rotationPeriod: '16 hours 6 minutes',
+    moons: '16',
+    temperature: 'About -200°C',
+    facts: [
+      'Neptune was found through mathematical predictions before it was seen.',
+      'Winds can exceed 2,000 km/h.',
+      'It has completed only one orbit since its discovery in 1846 (in 2011).',
+    ],
+  },
+];
+
+// Moon counts change as astronomers confirm new moons, so these are dataset values.
+export default planets;
